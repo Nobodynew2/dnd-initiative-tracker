@@ -9,6 +9,11 @@ A C# command line application for tracking initiative order in Dungeons and Drag
 - Input validity checked alongside personality-driven feedback messages
 
 ## How to Run (With VS Code)
+**Requirements:** .NET SDK
+
+1. Clone this repository
+2. Navigate to project folder (InitiativeTracker)
+3. Run 'dotnet run'
 
 ## Commands
 - `generate` - Create new initiative list
