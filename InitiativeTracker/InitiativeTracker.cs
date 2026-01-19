@@ -11,147 +11,168 @@ public class IntiativeTracker
 {
     public static void Main()
     {
-        Dictionary<string, int> final_intitiative = new Dictionary<string, int>();
-        string command = "";
+        Dictionary<string, int> final_initiative = new Dictionary<string, int>();
+        string input = "";
         message("Type 'Help' to view command list.");
-        while (command.ToUpper() != "EXIT")
+        while (input.ToUpper() != "EXIT")
         {
-            command = Console.ReadLine() ?? "";
+            input = Console.ReadLine() ?? "";
+            input = input.Trim();
             Console.Clear();
-            List<string> command_words = command.Split(' ').ToList();
-            bool num = false;
-            if (command_words.Count > 2)
-            {
+            List<string> command_words = input.Split(' ').ToList();
 
-                num = int.TryParse(command_words[2], out int result);
-            }
-
-            // runs clear command
-            if (command.ToUpper() == "CLEAR")
+            switch (command_words[0].ToUpper())
             {
-                Console.Clear();
-            }
+                // runs help method
+                case "HELP":
+                    if (command_words.Count == 1){
+                        Console.WriteLine("-------------------------------------------------" + Environment.NewLine);
+                        foreach (var item in command_list)
+                        {
+                            Console.WriteLine(item);
+                        }
+                        Console.WriteLine(Environment.NewLine + "-------------------------------------------------");
+                    }
+                    else
+                    {
+                        get_negative_message();
+                    }
+                    break;
+                // runs initiative method
+                case "GENERATE":
+                    if (command_words.Count == 1) {
+                        final_initiative = createlist();
+                        PrintList(final_initiative);
+                    }
+                    else
+                    {
+                        get_negative_message();
+                    }
+                    break;
 
-            // runs help command
-            if (command.ToUpper() == "HELP")
-            {
-                Console.WriteLine("-------------------------------------------------" + Environment.NewLine);
-                foreach (var item in command_list)
-                {
-                    Console.WriteLine(item);
-                }
-                Console.WriteLine(Environment.NewLine + "-------------------------------------------------");
+                // runs print list method
+                case "LIST":
+                case "L":
+                    if (command_words.Count == 1) {
+                        if (final_initiative.Count != 0)
+                        {
+                            message("Fetching initiative...");
+                            PrintList(final_initiative);
+                        }
+                        else
+                        {
+                            get_negative_message();
+                            message("You have to make the list first...");
+                        }
+                    }
+                    else
+                    {
+                        get_negative_message();
+                    }
+                    break;
+                 // runs remove method
+                case "REMOVE":
+                    if (final_initiative.Count > 1 && command_words.Count == 2)
+                    {
+                        RemoveChar(final_initiative, command_words[1]);
+                        PrintList(final_initiative);
+                    }
+                    else
+                    {
+                        get_negative_message();
+                        if (final_initiative.Count == 0)
+                        {
+                            message("You have to make the list first...");
+                        }
+                    }
+                    break;
+                // runs add method, also checking to see if a number was actually inputed
+                case "ADD":
+                    if (final_initiative.Count != 0 && command_words.Count == 3)
+                    {
+                        if (int.TryParse(command_words[2], out int result)){
+                            final_initiative = AddChar(final_initiative, command_words[1], command_words[2]);
+                            PrintList(final_initiative);
+                        }
+                        else
+                        {
+                            get_negative_message();
+                        }
+                    }
+                    else
+                    {
+                        get_negative_message();
+                        if (final_initiative.Count == 0)
+                        {
+                            message("You have to make the list first...");
+                        }
+                    }
+                    break;
+                // runs next comand
+                case "NEXT":
+                case "N":
+                    if (command_words.Count == 1){
+                        if (final_initiative.Count != 0)
+                            {
+                                Next(final_initiative);
+                            }
+                        else
+                            {
+                                get_negative_message();
+                                message("You have to make the list first...");
+                            }
+                    }
+                    else
+                    {
+                        get_negative_message();
+                    }
+                    break;
+                // runs swap command
+                case "SWAP":
+                    if (final_initiative.Count != 0 && command_words.Count == 3)
+                    {
+                        final_initiative = SwapChar(final_initiative, command_words[1], command_words[2]);
+                        PrintList(final_initiative);
+                    }
+                    else
+                    {
+                        get_negative_message();
+                        if (final_initiative.Count == 0)
+                        {
+                            message("You have to make the list first...");
+                        }
+                    }
+                    break;
+                default:
+                    if (input.ToUpper() != "EXIT")
+                    {
+                        get_negative_message();
+                    }
+                    break;
             }
-            // runs initiative command
-            if (command.ToUpper() == "GENERATE")
-            {
-                final_intitiative = createlist();
-                PrintList(final_intitiative);
-            }
-
-            // runs print list command
-
-            if (command.ToUpper() == "LIST" || command.ToUpper() == "L")
-            {
-                if (final_intitiative != null)
-                {
-                    message("Fetching initiative...");
-                    PrintList(final_intitiative);
-                }
-                else
-                {
-                    message("Error, initiative list has not been generated");
-                }
-
-            }
-            // Remove command
-            if (command_words[0].ToUpper() == "REMOVE")
-            {
-                if (final_intitiative != null && final_intitiative.Count > 1 && command_words.Count == 2)
-                {
-                    RemoveChar(final_intitiative, command_words[1]);
-                    PrintList(final_intitiative);
-                }
-                else
-                {
-                    get_negative_message();
-                }
-            }
-            // Add command
-            if (command_words[0].ToUpper() == "ADD")
-            {
-                if (final_intitiative != null && num is true && command_words.Count == 3)
-                {
-                    final_intitiative = AddChar(final_intitiative, command_words[1], command_words[2]);
-                    PrintList(final_intitiative);
-                }
-                else
-                {
-                    get_negative_message();
-                }
-
-            }
-            // Next command
-            if (command.ToUpper() == "NEXT" || command.ToUpper() == "N")
-            {
-                if (final_intitiative != null)
-                {
-                    Next(final_intitiative);
-                }
-                else
-                {
-                    get_negative_message();
-                }
-            }
-            // swap command
-            if (command_words[0].ToUpper() == "SWAP")
-            {
-                if (final_intitiative != null && command_words.Count == 3)
-                {
-                    final_intitiative = SwapChar(final_intitiative, command_words[1], command_words[2]);
-                    PrintList(final_intitiative);
-                }
-                else
-                {
-                    get_negative_message();
-                }
-
-            }
-            
-
         }
-
-
     }
-
     // stores command list
     public static string[] command_list = {
         "Generate: Creates initial list based on user input",
-        "Exit: Exit the program",
         "List (l): List the current initiative order, and display the current turn",
         "Add <Person> <Int>: Add a new character to the initiative list",
         "Remove <Person>: Remove a character from the initiative list",
         "Next (n): Start's the next character's turn",
         "Swap <Person1> <Person2>: Swap the position of two characters",
-        "Clear: Clear the command history"
+        "Exit: Exit the program",
         };
-
     // a counter to keep track of current initiative
     public static int counter = 0;
-
     // a list holding positive feedback!
     public static string[] positive_feedback = { "I see you.", "Alright!", "Roger!", "Understood.", "Noted.", "Affirmative!", "As you wish!", "I suppose.", "Per your command!"};
-
     // a list with a bit less positive feedback...
-
     public static string[] negative_feedback = { "I don't know...", "Umm...", "Maybe not.", "That isn't gonna work.", "I don't wanna.", "Invalid.", "Think again, casual.", "Heh, you thought.", "Boo hoo."};
-
     // method to print message in good format
-
     public static void message(string text)
     {
         Console.WriteLine("-------------------------------------------------" + Environment.NewLine + Environment.NewLine + $"{text}" + Environment.NewLine + Environment.NewLine + "-------------------------------------------------");
-    }    
+    }
     // method to get positive message
     public static void get_positive_message()
     {
@@ -159,7 +180,6 @@ public class IntiativeTracker
         int index = rand.Next(0, positive_feedback.Length);
         message(positive_feedback[index]);
     }
-
     public static void get_negative_message()
     {
         Random rand = new Random();
@@ -167,9 +187,6 @@ public class IntiativeTracker
         message(negative_feedback[index]);
     }
     // checks if input conditions for initiative are valid
-
-
-
     public static bool Valid(string attempt)
     {
         // create a list to check if it meets the criteria of two indexs
@@ -183,8 +200,6 @@ public class IntiativeTracker
         }
         return false;
     }
-
-
     // creates a list for initiatve. Input required is 'name' 'intiative'
     public static Dictionary<string, int> createlist()
     {
@@ -199,12 +214,10 @@ public class IntiativeTracker
         {
             bool different_person = true;
             input = Console.ReadLine() ?? "";
-
-
+            input = input.Trim();
             if (Valid(input) == true && different_person is true)
             {
                 List<string> character_and_roll = input.Split(' ').ToList();
-
                 // test to make sure person is not a repeat
                 foreach (string person in init_list.Keys)
                 {
@@ -212,8 +225,6 @@ public class IntiativeTracker
                     {
                         different_person = false;
                     }
-
-
                 }
                 if (different_person is true)
                 {
@@ -224,9 +235,6 @@ public class IntiativeTracker
                 {
                     get_negative_message();
                 }
-
-                
-
             }
             else if (input.ToUpper() == "END")
             {
@@ -236,32 +244,20 @@ public class IntiativeTracker
             {
                 get_negative_message();
             }
-
-
-
-
-
         }
         var sortedDict = from entry in init_list orderby entry.Value descending select entry;
         return sortedDict.ToDictionary<string, int>();
-
     }
     // swaps two characters
     public static Dictionary<string, int> SwapChar(Dictionary<string, int> initiative, string character1, string character2)
     {
-
         // get list of all characters in dictionary
-
         List<string> people = initiative.Keys.ToList();
-
         // dictionary to be returned
-
         Dictionary<string, int> to_return = new Dictionary<string, int>();
-
         // ints to store index of characters in list
         int char1_index = -1;
         int char2_index = -1;
-
         // Goes through list to store index of characters
         for (int i = 0; i < people.Count; i++)
         {
@@ -281,28 +277,22 @@ public class IntiativeTracker
             get_negative_message();
             return initiative;
         }
-
         // otherwise swaps position of people in list, and makes a new dictionary
         people[char1_index] = character2;
         people[char2_index] = character1;
-
         for (int i = 0; i < people.Count; i++)
         {
             to_return[people[i]] = initiative.Values.ToList()[i];
         }
         return to_return;
-
     }
     // adds a character to initiative
     public static Dictionary<string, int> AddChar(Dictionary<string, int> initiative, string character, string roll)
     {
-
         // bool that returns false if the person you are trying to add is alreday in the dictionary
-
         character = character.ToLower();
         
         bool valid = true;
-
         foreach (string person in initiative.Keys)
         {
             if (character == person)
@@ -323,23 +313,14 @@ public class IntiativeTracker
             get_negative_message();
             return initiative;
         }
-
-
-
-
-
     }
     public static void RemoveChar(Dictionary<string, int> initiative, string name)
     {
         name = name.ToLower();
         string before = initiative.Keys.ElementAt(counter);
         bool success = initiative.Remove(name);
-
-
         if (success is true)
         {
-
-
             // check if counter goes out of range
             if (counter >= initiative.Count)
             {
@@ -372,13 +353,9 @@ public class IntiativeTracker
             {
                 Console.WriteLine(item);
             }
-
-
         }
         Console.WriteLine("-------------------------------------------------");
     }
-
-
     // makes it the next person's turn
     public static void Next(Dictionary<string, int> initiative)
     {
@@ -397,4 +374,3 @@ public class IntiativeTracker
         }
     }
 };
-

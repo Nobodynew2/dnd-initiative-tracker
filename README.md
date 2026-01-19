@@ -3,7 +3,7 @@ A C# command console app for tracking initiative order in Dungeons and Dragons. 
 
 ## Features
 - Generate initiative lists from user input
-- Add/remove characters 
+- Add/remove characters
 - Track current turn
 - Swap character positions
 - Input validity checked with fun personality-driven messages
@@ -22,6 +22,5 @@ A C# command console app for tracking initiative order in Dungeons and Dragons. 
 - `remove <name>` - Remove character
 - `next` or `n` - Progress to next turn
 - `swap <name1> <name2>` - Swap positions
-- `clear` - Clear console
 - `help` - View commands
 - `exit` - Exit program
