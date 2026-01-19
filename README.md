@@ -1,19 +1,19 @@
 # D&D Initiative Tracker
-A C# command line application for tracking initiative order in Dungeons and Dragons. Features include turn tracking and robust input validation. Built to streamline combat encounters during my campaign.
+A C# command console app for tracking initiative order in Dungeons and Dragons. I built it to more efficiently progress my combat encounters during campaigns.
 
 ## Features
 - Generate initiative lists from user input
 - Add/remove characters 
-- Track current turn with automatic progression
+- Track current turn
 - Swap character positions
-- Input validity checked alongside personality-driven feedback messages
+- Input validity checked with fun personality-driven messages
 
-## How to Run (With VS Code)
+## How to Run
 **Requirements:** .NET SDK
 
 1. Clone this repository
 2. Navigate to project folder (InitiativeTracker)
-3. Run 'dotnet run'
+3. Run `dotnet run`
 
 ## Commands
 - `generate` - Create new initiative list
