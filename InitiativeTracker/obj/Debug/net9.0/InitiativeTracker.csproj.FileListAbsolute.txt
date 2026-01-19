@@ -12,3 +12,4 @@
 /Users/owner/Documents/Personal Coding/C#/InitiativeTracker/InitiativeTracker/obj/Debug/net9.0/InitiativeTracker.pdb
 /Users/owner/Documents/Personal Coding/C#/InitiativeTracker/InitiativeTracker/obj/Debug/net9.0/InitiativeTracker.genruntimeconfig.cache
 /Users/owner/Documents/Personal Coding/C#/InitiativeTracker/InitiativeTracker/obj/Debug/net9.0/ref/InitiativeTracker.dll
+/Users/owner/Documents/Personal Coding/C#/InitiativeTracker/InitiativeTracker/obj/Debug/net9.0/InitiativeTracker.sourcelink.json

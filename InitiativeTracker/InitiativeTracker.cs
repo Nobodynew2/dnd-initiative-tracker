@@ -140,7 +140,7 @@ public class IntiativeTracker
     public static int counter = 0;
 
     // a list holding positive feedback!
-    public static string[] positive_feedback = { "I see you.", "Alright!", "Roger!", "Understood.", "Noted.", "Affirmative!", "As you wish!", "I suppose...", "Per your command!"};
+    public static string[] positive_feedback = { "I see you.", "Alright!", "Roger!", "Understood.", "Noted.", "Affirmative!", "As you wish!", "I suppose.", "Per your command!"};
 
     // a list with a bit less positive feedback...
 
@@ -178,10 +178,8 @@ public class IntiativeTracker
         {
             // try to parse [1] into int ONLY after checking it has two slots
             bool success = int.TryParse(attempt_list[1], out int result);
-            if (success is true)
-            {
-                return true;
-            }
+            
+            return success;
         }
         return false;
     }
