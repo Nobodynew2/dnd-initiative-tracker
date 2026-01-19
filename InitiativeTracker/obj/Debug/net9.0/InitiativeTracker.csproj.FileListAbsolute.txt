@@ -1,0 +1,14 @@
+/Users/owner/Documents/Personal Coding/C#/InitiativeTracker/InitiativeTracker/bin/Debug/net9.0/InitiativeTracker
+/Users/owner/Documents/Personal Coding/C#/InitiativeTracker/InitiativeTracker/bin/Debug/net9.0/InitiativeTracker.deps.json
+/Users/owner/Documents/Personal Coding/C#/InitiativeTracker/InitiativeTracker/bin/Debug/net9.0/InitiativeTracker.runtimeconfig.json
+/Users/owner/Documents/Personal Coding/C#/InitiativeTracker/InitiativeTracker/bin/Debug/net9.0/InitiativeTracker.dll
+/Users/owner/Documents/Personal Coding/C#/InitiativeTracker/InitiativeTracker/bin/Debug/net9.0/InitiativeTracker.pdb
+/Users/owner/Documents/Personal Coding/C#/InitiativeTracker/InitiativeTracker/obj/Debug/net9.0/InitiativeTracker.GeneratedMSBuildEditorConfig.editorconfig
+/Users/owner/Documents/Personal Coding/C#/InitiativeTracker/InitiativeTracker/obj/Debug/net9.0/InitiativeTracker.AssemblyInfoInputs.cache
+/Users/owner/Documents/Personal Coding/C#/InitiativeTracker/InitiativeTracker/obj/Debug/net9.0/InitiativeTracker.AssemblyInfo.cs
+/Users/owner/Documents/Personal Coding/C#/InitiativeTracker/InitiativeTracker/obj/Debug/net9.0/InitiativeTracker.csproj.CoreCompileInputs.cache
+/Users/owner/Documents/Personal Coding/C#/InitiativeTracker/InitiativeTracker/obj/Debug/net9.0/InitiativeTracker.dll
+/Users/owner/Documents/Personal Coding/C#/InitiativeTracker/InitiativeTracker/obj/Debug/net9.0/refint/InitiativeTracker.dll
+/Users/owner/Documents/Personal Coding/C#/InitiativeTracker/InitiativeTracker/obj/Debug/net9.0/InitiativeTracker.pdb
+/Users/owner/Documents/Personal Coding/C#/InitiativeTracker/InitiativeTracker/obj/Debug/net9.0/InitiativeTracker.genruntimeconfig.cache
+/Users/owner/Documents/Personal Coding/C#/InitiativeTracker/InitiativeTracker/obj/Debug/net9.0/ref/InitiativeTracker.dll
