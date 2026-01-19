@@ -11,12 +11,12 @@ public class IntiativeTracker
 {
     public static void Main()
     {
-        Dictionary<string, int> final_intitiative = null;
+        Dictionary<string, int> final_intitiative = new Dictionary<string, int>();
         string command = "";
         message("Type 'Help' to view command list.");
         while (command.ToUpper() != "EXIT")
         {
-            command = Console.ReadLine();
+            command = Console.ReadLine() ?? "";
             Console.Clear();
             List<string> command_words = command.Split(' ').ToList();
             bool num = false;
@@ -198,7 +198,7 @@ public class IntiativeTracker
         while (input.ToUpper() != "END")
         {
             bool different_person = true;
-            input = Console.ReadLine();
+            input = Console.ReadLine() ?? "";
 
 
             if (Valid(input) == true && different_person is true)

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InitiativeTracker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+57de977d6c4c39af7923d5fd11eacb20a3ed7890")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+72de20e319667c502a98438a7198964f4eda9a06")]
 [assembly: System.Reflection.AssemblyProductAttribute("InitiativeTracker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("InitiativeTracker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
